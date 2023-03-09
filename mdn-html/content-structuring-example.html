@@ -1,0 +1,124 @@
+<!--
+  Example of HTML for structuring content - some of these tags make it easier to group things in HTML code.
+  https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure
+  
+  <header> represents a group of introductory content. If it is a child of <body> it defines the global header
+     of a webpage, but if it's a child of an <article> or <section> it defines a specific header for that section 
+      (try not to confuse this with titles and headings).
+  <nav> contains the main navigation functionality for the page. Secondary links, etc., would not go 
+    in the navigation.
+  <main> is for content unique to this page. Use <main> only once per page, and put it directly inside <body>.
+    Ideally this shouldn't be nested within other elements.
+  <article> encloses a block of related content that makes sense on its own without the rest of the page 
+    (e.g., a single blog post).
+  <section> is similar to <article>, but it is more for grouping together a single part of the page that 
+    constitutes one single piece of functionality (e.g., a mini map, or a set of article headlines and 
+    summaries), or a theme. It's considered best practice to begin each section with a heading; also note 
+    that you can break <article>s up into different <section>s, or <section>s up into different <article>s,
+     depending on the context.
+  <aside> contains content that is not directly related to the main content but can provide additional information
+   indirectly related to it (glossary entries, author biography, related links, etc.).
+  <footer> represents a group of end content for a page.
+-->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>My page title</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" /> <!-- I don't have taht stylesheet💀 -->
+  </head>
+
+  <body>
+    <!-- Here is our main header that is used across all the pages of our website -->
+
+    <header>
+      <h1>Header</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our team</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <!-- A Search form is another common non-linear way to navigate through a website. -->
+
+      <form>
+        <input type="search" name="q" placeholder="Search up a qwewy" />
+        <input type="submit" value="Goooo!" />
+      </form>
+    </nav>
+
+    <!-- Here is our page's main content -->
+    <main>
+      <!-- It contains an article -->
+      <article>
+        <h2>Article heading</h2>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
+          lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam
+          viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent
+          et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt
+          congue enim, ut porta lorem lacinia consectetur.
+        </p>
+
+        <h3>Subsection</h3>
+
+        <p>
+          Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem.
+          Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+        </p>
+
+        <p>
+          Pelientesque auctor nisi id magna consequat sagittis. Curabitur
+          dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet.
+          Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.
+        </p>
+
+        <h3>Another subsection</h3>
+
+        <p>
+          Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum
+          soclis natoque penatibus et manis dis parturient montes, nascetur
+          ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
+          facilisis semper ac in est.
+        </p>
+
+        <p>
+          Vivamus fermentum semper porta. Nunc diam velit, adipscing ut
+          tristique vitae sagittis vel odio. Maecenas convallis ullamcorper
+          ultricied. Curabitur ornare, ligula semper consectetur sagittis, nisi
+          diam iaculis velit, is fringille sem nunc vet mi.
+        </p>
+      </article>
+
+      <!-- the aside content can also be nested within the main content -->
+      <aside>
+        <h2>Related</h2>
+
+        <ul>
+          <li><a href="#">Oh I do like to be beside the seaside</a></li>
+          <li><a href="#">Oh I do like to be beside the sea</a></li>
+          <li><a href="#">Although in the North of England</a></li>
+          <li><a href="#">It never stops raining</a></li>
+          <li><a href="#">Oh well…</a></li>
+        </ul>
+      </aside>
+    </main>
+
+    <!-- And here is our main footer that is used across all the pages of our website -->
+
+    <footer>
+      <p>©Copyright 2050 by nobody. All rights reversed.</p>
+    </footer>
+  </body>
+</html>
