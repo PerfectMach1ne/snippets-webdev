@@ -1,0 +1,13 @@
+body {
+  background-color: #add8e6; /* starting to dislike Firefox. why i the fuck does this not work.? */
+}
+
+h1 {
+  color: purple;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}

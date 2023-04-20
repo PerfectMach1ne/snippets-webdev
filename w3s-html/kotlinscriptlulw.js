@@ -1,0 +1,1 @@
+document.getElementById("skript").textContent = "i test da thing";
