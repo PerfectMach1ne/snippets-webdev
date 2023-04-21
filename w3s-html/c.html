@@ -1,0 +1,27 @@
+<!--
+  CSS BOX MODEL
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* THE CSS BOX MODEL */
+    div {
+      width: 320px; /* content width */
+      padding: 10px; /* counted twice, "padding" as in space between content and border */
+      border: 5px solid gray; /* counted twice, because it goes around the entire thing; border thickness basically*/
+      margin: 0; /* yes it can be just 0; also counted twice, try: img width=370 and margin: 10px */
+    }
+  </style>
+</head>
+<body>
+  <h2>Calculate the total width:</h2>
+
+  <img src="https://www.w3schools.com/css/klematis4_big.jpg" width=350 height=263 alt="Klematis flower">
+  <div>The picture above is 350px wide. The total width of this element is also 350px.</div>
+</body>
+</html>
