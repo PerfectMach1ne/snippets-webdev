@@ -61,3 +61,54 @@ through the clipped content that is otherwise hidden from view. */
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
 }
+
+.scroll__container__c::-webkit-scrollbar {
+  margin: 15px;
+  border: 7px solid rgb(32, 178, 170, .5);
+  padding: 10px;
+  max-width: calc(570px / 2);
+  max-height: 150px;
+  display: block;
+  overflow: scroll;
+}
+
+/* Okay, now this below DOES work! And it is compatible both with WebKit browsers AND
+Firefox! By "close enough" looks, at least... */
+.whythefuckdoitnotwork {
+  display: block;
+  max-width: calc(570px / 2);
+  max-height: 150px;
+  overflow-y: scroll;
+  scrollbar-color: #000 #aaa;
+  scrollbar-width: thin;
+}
+
+.whythefuckdoitnotwork::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa; 
+}
+
+.whythefuckdoitnotwork::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+.scroll__container__d {
+  margin: 15px;
+  border: 7px solid rgb(32, 178, 170, .5);
+  padding: 10px;
+  max-width: calc(570px / 2);
+  max-height: 150px;
+  overflow-y: scroll;
+  scrollbar-color: rgb(4, 68, 164) rgb(95, 130, 159);
+  scrollbar-width: thin;
+}
+
+.scroll__container__d::-webkit-scrollbar {
+  width: 8px; /* practically identical to firefox width. epic */
+  background-color: rgb(95, 130, 159);
+}
+
+.scroll__container__d::-webkit-scrollbar-thumb {
+  background: rgb(4, 68, 164);
+}
