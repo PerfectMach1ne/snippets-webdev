@@ -1,0 +1,1 @@
+vłe kropka dżejes tszy 
