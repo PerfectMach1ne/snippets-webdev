@@ -1,0 +1,50 @@
+* {
+  font-family: sans-serif;
+}
+
+div {
+  border: 1px solid #c5c5c5;
+  width: fit-content;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+/* target any li element that has a class of special */
+li.special,
+p.special { 
+  color: orange;
+  font-weight: bold;
+}
+
+li em {
+  color: rebeccapurple;
+}
+
+/* Only p is affected, given that it's after a h1 */
+h1 + p {
+  color: midnightblue;
+}
+
+/* Similarly here, an ul after p is affected */
+p + ul {
+  font-size: 150%;
+}
+
+span {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+a:link {
+  color: pink;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+}
