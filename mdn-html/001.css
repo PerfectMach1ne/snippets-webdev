@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+span {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+strong {
+  color: rebeccapurple;
+}
+
+em {
+  background-color: slategrey;
+  color: bisque;
+  font-weight: bold;
+}
