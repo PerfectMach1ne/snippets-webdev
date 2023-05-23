@@ -1,0 +1,39 @@
+body {
+  border: 1px solid black;
+  padding: .5em;
+}
+
+div {
+  margin: .5em;
+}
+
+.notebox {
+  border: 4px solid #666;
+  padding: .5em;
+}
+
+.notebox.warning {
+  border-color: orange;
+  font-weight: bold;
+}
+
+.notebox.danger {
+  border-color: red;
+  font-weight: bold;
+}
+
+#one {
+  background-color: yellow;
+}
+
+h1#heading {
+  color: rebeccapurple;
+}
+
+span.highlight {
+  background-color: yellow;
+}
+
+h1.highlight {
+  background-color: pink;
+}
