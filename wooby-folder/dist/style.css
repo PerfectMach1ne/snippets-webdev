@@ -1,0 +1,7 @@
+ul {
+  max-width: 10rem;
+}
+
+li {
+  overflow-wrap: anywhere;
+}
