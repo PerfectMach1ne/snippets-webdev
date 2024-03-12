@@ -10,44 +10,50 @@
   </style>
 </head>
 <body>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  
   <div id="app">
     <p>x <input v-model="x"></p>
     <p>y <input v-model="y"></div>
     <p>----------------------------</p>
-    <p>= {{ result }}</p>
+    <p>= <span>{{result}}<span></p>
   </div>
 
   <!-- DOES NOT WORK, as I have foudn out that the author of my book is using.
   A Vue.js distribution. that's 7 years old. LOL
   ...I'll make this work though. Extra challenge ig -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
   <script type="text/javascript">
-    const { createApp } = Vue;
-
     function isNotNumericValue(value) {
       return isNaN(value) || !isFinite(value);
     }
 
-    var calc = createApp({
+    var calc = new Vue({
       el: '#app',
-      data() {
-        return { x: 0, y: 0, lastResult: 0 };
+      data: { x: 0, y: 0, lastResult: 0, result: '' },
+      watch: {
+        lastResult: function () {
+          let x = parseFloat(this.x);
+          let y = parseFloat(this.y);
+          if(!isNotNumericValue(x) && !isNotNumericValue(y)) this.lastResult = x + y;
+
+          this.result = this.lastResult;
+        }
       },
       computed: {
-        result: function() {
-          let x = parseFloat(this.x);
-          if(isNotNumericValue(x)) return this.lastResult;
+        // result: function () {
+        //   let x = parseFloat(this.x);
+        //   if(isNotNumericValue(x)) return this.lastResult;
           
-          let y = parseFloat(this.y);
-          if(isNotNumericValue(y)) return this.lastResult;
-          
-          this.lastResult = x + y;
+        //   let y = parseFloat(this.y);
+        //   if(isNotNumericValue(y)) return this.lastResult;
+        //   this.lastResult = x + y;
 
-          return this.lastResult;
-        }
+        //   return this.lastResult;
+        // }
+      },
+      updated: function () {
+        console.log(this.lastResult);
       }
-    }).mount('#app');
+    });
   </script>
 </body>
 </html>

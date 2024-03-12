@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue calculator</title>
+  <style>
+    p, input { font-family: monospace; }
+    p { white-space: pre; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- I finally made it work!
+         Turns out the book had made a mistake, that was not wrapping the main app div's 
+         content in a template tag. -->
+    <!-- Extra side note: <template> MUST be INSIDE the div#app tag -->
+    <template>
+      <p>x <input v-model="x"></p>
+      <p>y <input v-model="y"></div>
+      <p>----------------------------</p>
+      <p>= <span>{{ result }}<span></p>
+    </template>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+  <script type="text/javascript">
+    function isNotNumericValue(value) {
+      return isNaN(value) || !isFinite(value);
+    }
+
+    var calc = new Vue({
+      el: '#app',
+      data: { x: 0, y: 0, lastResult: 0, },
+      computed: {
+        result: function () {
+          let x = parseFloat(this.x);
+          if(isNotNumericValue(x)) return this.lastResult;
+          
+          let y = parseFloat(this.y);
+          if(isNotNumericValue(y)) return this.lastResult;
+          this.lastResult = x + y;
+
+          return this.lastResult;
+        }
+      },
+      updated: function () {
+        console.log(this.lastResult);
+      }
+    });
+  </script>
+</body>
+</html>
