@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue calculator</title>
+  <style>
+    p, input { font-family: monospace; }
+    p { white-space: pre; }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+  <div id="app">
+    <p>x <input v-model="x"></p>
+    <p>y <input v-model="y"></div>
+    <p>----------------------------</p>
+    <p>= {{ result }}</p>
+  </div>
+
+  <!-- DOES NOT WORK, as I have foudn out that the author of my book is using.
+  A Vue.js distribution. that's 7 years old. LOL
+  ...I'll make this work though. Extra challenge ig -->
+  <script type="text/javascript">
+    const { createApp } = Vue;
+
+    function isNotNumericValue(value) {
+      return isNaN(value) || !isFinite(value);
+    }
+
+    var calc = createApp({
+      el: '#app',
+      data() {
+        return { x: 0, y: 0, lastResult: 0 };
+      },
+      computed: {
+        result: function() {
+          let x = parseFloat(this.x);
+          if(isNotNumericValue(x)) return this.lastResult;
+          
+          let y = parseFloat(this.y);
+          if(isNotNumericValue(y)) return this.lastResult;
+          
+          this.lastResult = x + y;
+
+          return this.lastResult;
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
