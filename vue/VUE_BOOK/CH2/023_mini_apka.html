@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skład dla zwierzaków :: Vue.js</title>
+  <link rel="stylesheet" type="text/css" href="./assets/css/app.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+</head>
+<body>
+  <div id="app">
+    <template>
+      <div class="navbar navbar-default">
+        <header>
+          <h1>{{ sitename }}</h1>
+        </header>
+      </div>
+      <main>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1">
+            <figure>
+              <img v-bind:src="product.image" alt="a kbity">
+            </figure>
+          </div>
+          <div class="col-md-6 col-md-offset-2 description">
+            <h1>{{ product.title }}</h1>
+            <p v-html="product.description"></p>
+            <p class="price">{{ product.price | formatPrice }} PLN</p>
+          </div>
+        </div>
+      </main>
+    </template>
+  </div>
+
+  <script type="text/javascript">
+    var APP_LOG_LIFECYCLE_EVENTS = true;
+    
+    var webstore = new Vue({
+      el: '#app',
+      data: {
+        sitename: "Skład dla zwierzaków :: Vue.js",
+        product: {
+          id: 1001,
+          title: "Karma dla kota 10kg",
+          description: "10 kilogramowa saszeta dla małych bombli. smakuje <em>zajebiście</em>.",
+          price: 5700,
+          image: './assets/images/product-fullsize.png'
+        }
+      },
+      filters: {
+        formatPrice: function(price) {	//#B
+          if (!parseInt(price)) { return ""; }	//#C
+          if (price > 99999) {	//#D
+            var priceString = (price / 100).toFixed(2);	//#E
+            var priceArray = priceString.split("").reverse();	//#F
+            var index = 3;	//#F
+            while (priceArray.length > index + 3) {	//#F
+              priceArray.splice(index+3, 0, ",");	//#F
+              index += 4;	//#F
+            }	//#F
+            return "$" + priceArray.reverse().join("");	//#G
+          } else {
+            return "$" + (price / 100).toFixed(2);	//#H
+          }
+        }
+      },
+      beforeCreate: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("beforeCreate");
+        }
+      },
+      created: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("created");
+        }
+      },
+      beforeMount: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("beforeMount");
+        }
+      },
+      mounted: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("mounted"); 	//#E
+        } 	//#E
+      },	//#E
+      beforeUpdate: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("beforeUpdate");
+        }
+      },
+      updated: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("updated");
+        }
+      },
+      beforeDestroy: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("beforeDestroy");
+        }
+      },
+      destroyed: function() {
+        if (APP_LOG_LIFECYCLE_EVENTS) {
+          console.log("destroyed");
+        }
+      }
+    });
+  </script>
+</body>
+</html>
